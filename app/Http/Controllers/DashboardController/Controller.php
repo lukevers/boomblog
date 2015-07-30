@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\DashboardController;
 
+use Illuminate\Http\Request;
+
 class Controller extends \App\Http\Controllers\Controller
 {
     /**
@@ -32,5 +34,16 @@ class Controller extends \App\Http\Controllers\Controller
     public function getNew()
     {
         return view('dashboard.new-post');
+    }
+
+    /**
+     * New Post
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function postNew(Request $request)
+    {
+        dd($request);
     }
 }
