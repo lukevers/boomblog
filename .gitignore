@@ -10,3 +10,7 @@
 # Compiled Assets
 /public/assets/css/*.css
 /public/assets/js/*.js
+
+# Fonts
+/public/assets/fonts/FontAwesome.*
+/public/assets/fonts/fontawesome-webfont.*

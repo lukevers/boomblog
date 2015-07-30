@@ -2,6 +2,6 @@
 
 @section('content')
 
-<a href="/dashboard/new">New Post</a>
+<div id="summernote">Hello Summernote</div>
 
 @endsection

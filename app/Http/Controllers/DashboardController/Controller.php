@@ -21,6 +21,16 @@ class Controller extends \App\Http\Controllers\Controller
      */
     public function getIndex()
     {
-        return view('public.index');
+        return view('dashboard.index');
+    }
+
+    /**
+     * New Post Page
+     *
+     * @return view
+     */
+    public function getNew()
+    {
+        return view('dashboard.new-post');
     }
 }
