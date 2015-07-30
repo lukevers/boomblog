@@ -32,6 +32,8 @@ gulp.task('less', function() {
 
 gulp.task('js', function() {
     return gulp.src([
+            'bower_components/jquery/dist/jquery.min.js',
+            'bower_components/bootstrap/dist/js/bootstrap.min.js',
             'resources/assets/js/main.js',
         ])
         .pipe(concat('scripts.js'))

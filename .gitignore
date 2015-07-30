@@ -1,4 +1,12 @@
+# Folders
 /vendor
 /node_modules
-Homestead.yaml
+/bower_components
+
+# Files
 .env
+.DS_Store
+
+# Compiled Assets
+/public/assets/css/*.css
+/public/assets/js/*.js

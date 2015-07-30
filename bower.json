@@ -1,0 +1,8 @@
+{
+  "name": "boomblog",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "summernote": "~0.6.13"
+  }
+}
