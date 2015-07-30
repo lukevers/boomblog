@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Title</title>
+        <meta charset="utf-8">
+        <meta name="description" content="Description">
+
+        <link rel="icon" href="/favicon.ico" type="image/x-icon">
+        <link rel="canonical" href="{{ Request::url() }}">
+        <link rel="stylesheet" href="/assets/css/styles.css" type="text/css">
+    </head>
+    <body>
+        <div id="page-content">
+            @yield('content')
+        </div>
+
+        <script type="text/javascript" src="/assets/js/scripts.js"></script>
+    </body>
+</html>
+
