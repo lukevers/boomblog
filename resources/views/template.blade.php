@@ -9,8 +9,8 @@
         <link rel="canonical" href="{{ Request::url() }}">
         <link rel="stylesheet" href="/assets/css/styles.css" type="text/css">
     </head>
-    <body>
-        <div id="page-content">
+    <body class="{{ str_replace('/', '-', Request::path()) }}">
+        <div id="page-content" class="page-content">
             @yield('content')
         </div>
 

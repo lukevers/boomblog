@@ -2,6 +2,8 @@
 
 @section('content')
 
+@include('sections.dashboard.navbar')
+
 <div class="container">
     <div class="row">
         <div class="col-xs-12">
@@ -25,7 +27,7 @@
         </div>
         <div class="row">
             <div class="col-xs-12">
-                <input type="submit" id="submit">
+                <input type="submit" id="submit" value="Save Draft">
             </div>
         </div>
     </form>

@@ -27,6 +27,16 @@ class Controller extends \App\Http\Controllers\Controller
     }
 
     /**
+     * All Posts Page
+     *
+     * @return view
+     */
+    public function getPosts()
+    {
+        return view('dashboard.posts');
+    }
+
+    /**
      * New Post Page
      *
      * @return view

@@ -18,6 +18,7 @@ class CreatePostsTable extends Migration
             $table->string('meta_description');
             $table->text('body');
             $table->integer('user')->unsigned();
+            $table->boolean('published')->default(false);
             $table->timestamps();
 
             $table->foreign('user')->references('id')->on('users');

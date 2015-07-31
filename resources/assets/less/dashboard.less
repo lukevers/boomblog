@@ -1,0 +1,11 @@
+nav.navbar {
+    font-size: 12px;
+}
+
+body {
+    &[class*="dashboard-"] {
+        .page-content {
+            margin-top: @navbar-height + 15px;
+        }
+    }
+}
