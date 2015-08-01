@@ -34,6 +34,11 @@
         <div class="row">
             <div class="col-xs-12">
                 <input type="submit" id="submit" value="Save Draft">
+                <input type="submit" id="submit" value="Preview">
+
+                <div class="pull-right">
+                    <input type="submit" id="submit" value="Publish">
+                </div>
             </div>
         </div>
     </form>
