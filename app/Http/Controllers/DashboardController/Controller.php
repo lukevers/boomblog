@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\DashboardController;
 
 use Illuminate\Http\Request;
+use App\Posts\Post;
 
 class Controller extends \App\Http\Controllers\Controller
 {
@@ -27,23 +28,27 @@ class Controller extends \App\Http\Controllers\Controller
     }
 
     /**
-     * All Posts Page
+     * Posts page handler.
+     *
+     * If the second parameter is empty then we view all posts.
+     * If the second parameter is 'new' then we create a post.
+     * If the second parameter is not empty we edit that post.
      *
      * @return view
      */
-    public function getPosts()
+    public function getPosts(Request $request, $id = null)
     {
-        return view('dashboard.posts');
-    }
+        if (is_null($id))
+        {
+            return view('dashboard.posts');
+        }
 
-    /**
-     * New Post Page
-     *
-     * @return view
-     */
-    public function getNew()
-    {
-        return view('dashboard.new-post');
+        if ($id === 'new')
+        {
+            return view('dashboard.edit-post')->withPost(new Post);
+        }
+
+        return view('dashboard.edit-post')->withPost(Post::find($id));
     }
 
     /**

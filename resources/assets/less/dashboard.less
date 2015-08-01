@@ -7,5 +7,23 @@ body {
         .page-content {
             margin-top: @navbar-height + 15px;
         }
+
+        ul {
+            margin: 0;
+            padding: 0;
+
+            li {
+                list-style: none;
+
+                &.post {
+                    border-bottom: 1px solid @gray;
+                    padding: 15px;
+
+                    .meta-data {
+                        color: @gray;
+                    }
+                }
+            }
+        }
     }
 }

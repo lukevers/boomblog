@@ -14,14 +14,34 @@
 
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane active" id="published">
-                    @foreach(App\Posts\Post::published() as $post)
-                        y
-                    @endforeach
+                    <ul>
+                        @foreach(App\Posts\Post::published() as $post)
+                            <li class="post">
+                                <h2><a href="/dashboard/posts/{{ $post->id }}">{{ $post->title }}</a></h2>
+                                <p>{{ $post->meta_description }}</p>
+                                <div class="meta-data">
+                                    Author: {{ $post->author->name }}
+                                    <br/>Created On: {{ date('M d, Y g:i:s', strtotime($post->created_at)) }}
+                                    <br/>Last Updated On: {{ date('M d, Y g:i:s', strtotime($post->created_at)) }}
+                                </div>
+                            </li>
+                        @endforeach
+                    </ul>
                 </div>
                 <div role="tabpanel" class="tab-pane" id="drafts">
-                    @foreach(App\Posts\Post::drafts() as $post)
-                        x
-                    @endforeach
+                    <ul>
+                        @foreach(App\Posts\Post::drafts() as $post)
+                            <li class="post">
+                                <h2><a href="/dashboard/posts/{{ $post->id }}">{{ $post->title }}</a></h2>
+                                <p>{{ $post->meta_description }}</p>
+                                <div class="meta-data">
+                                    Author: {{ $post->author->name }}
+                                    <br/>Created On: {{ date('M d, Y g:i:s', strtotime($post->created_at)) }}
+                                    <br/>Last Updated On: {{ date('M d, Y g:i:s', strtotime($post->created_at)) }}
+                                </div>
+                            </li>
+                        @endforeach
+                    </ul>
                 </div>
             </div>
         </div>

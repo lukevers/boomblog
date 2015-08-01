@@ -32,4 +32,14 @@ class Post extends Model
     {
         return self::where('published', '=', false)->get();
     }
+
+    /**
+     * Get the author.
+     *
+     * @return App\User
+     */
+    public function author()
+    {
+        return $this->hasOne('App\User', 'id', 'user');
+    }
 }

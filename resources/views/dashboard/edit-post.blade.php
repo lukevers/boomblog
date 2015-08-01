@@ -7,7 +7,7 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-12">
-            <h1>New Post</h1>
+            <h1>Edit Post</h1>
         </div>
     </div>
 
@@ -16,13 +16,19 @@
         <div class="row">
             <div class="col-xs-12">
                 <label for="title">Title</label>
-                <input type="text" id="title" name="title" placeholder="Title">
+                <input type="text" id="title" name="title" placeholder="Title" value="{{ $post->title }}">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <label for="title">Short Description</label>
+                <input type="text" id="title" name="title" placeholder="Short Description" value="{{ $post->meta_description }}">
             </div>
         </div>
         <div class="row">
             <div class="col-xs-12">
                 <textarea id="body" name="body" class="hidden"></textarea>
-                <div id="summernote">New Post...</div>
+                <div id="summernote">{{ $post->body }}</div>
             </div>
         </div>
         <div class="row">

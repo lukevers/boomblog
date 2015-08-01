@@ -20,7 +20,7 @@
                 <li><a @if(Request::path() == "dashboard/posts")class="active"@endif href="/dashboard/posts" title="Posts">
                     <div><span class="hidden-xs"><i class="fa fa-inbox"></i></span> POSTS</div>
                 </a></li>
-                <li><a @if(Request::path() == "dashboard/posts/new")class="active"@endif href="/dashboard/new" title="New Post">
+                <li><a @if(Request::path() == "dashboard/posts/new")class="active"@endif href="/dashboard/posts/new" title="New Post">
                     <div><span class="hidden-xs"><i class="fa fa-plus"></i></span> NEW POST</div>
                 </a></li>
             </ul>
