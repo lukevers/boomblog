@@ -14,8 +14,9 @@
                     <div class="post-date">{{ date('M d, Y g:i:s', strtotime($post->published_at)) }}</div>
                     <div class="description">{{ $post->meta_description }}</div>
                     <div class="tags">
+                        tags:
                         @foreach($post->tags as $tag)
-                            <a href="/tagged/{{ $tag->get->name }}">{{ $tag->get->name }}</a>
+                            <a href="/tag/{{ $tag->get->name }}">{{ $tag->get->name }}</a>
                         @endforeach
                     </div>
                 </div>
