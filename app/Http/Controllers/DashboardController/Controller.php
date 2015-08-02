@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\DashboardController;
 
 use Illuminate\Http\Request;
+use Cocur\Slugify\Slugify;
 use App\Posts\Post;
 use Carbon;
 use Auth;
@@ -36,6 +37,8 @@ class Controller extends \App\Http\Controllers\Controller
      * If the second parameter is 'new' then we create a post.
      * If the second parameter is not empty we edit that post.
      *
+     * @param  \Illuminate\Http\Request $request
+     * @param  integer $id
      * @return view
      */
     public function getPosts(Request $request, $id = null)
@@ -75,6 +78,10 @@ class Controller extends \App\Http\Controllers\Controller
         $post->title = is_null($request['title']) ? '' : $request['title'];
         $post->meta_description = is_null($request['meta_description']) ? '' : $request['meta_description'];
         $post->body = is_null($request['body']) ? '' : $request['body'];
+
+        $slugify = new Slugify();
+        $post->slug = $slugify->slugify($post->title);
+
         $post->save();
 
         return $id === 'new' ? $post->id : 'success';

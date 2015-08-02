@@ -14,6 +14,22 @@ class Post extends Model
     protected $table = 'posts';
 
     /**
+     * Find By Title Slug
+     *
+     * @param  string $slug
+     * @return Post
+     */
+    public static function findByTitleSlug($slug = null)
+    {
+        if (is_null($slug))
+        {
+            return null;
+        }
+
+        return self::where('slug', '=', $slug)->first();
+    }
+
+    /**
      * Get a list of all published posts.
      *
      * @return Post
