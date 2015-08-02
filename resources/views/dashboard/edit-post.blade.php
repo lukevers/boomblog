@@ -32,7 +32,12 @@
         </div>
         <div class="row">
             <div class="col-xs-12">
-                <input type="submit" id="save-draft" value="Save Draft">
+                @if (isset($post->published) && $post->published)
+                    <input type="submit" id="save-draft" value="Update">
+                @else
+                    <input type="submit" id="save-draft" value="Save Draft">
+                @endif
+
                 @if (!isset($new))
                     <div class="pull-right">
                         <input type="submit" id="publish" value="Publish">

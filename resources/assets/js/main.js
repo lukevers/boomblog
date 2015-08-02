@@ -8,7 +8,8 @@ $(document).ready(function() {
     $('#save-draft').bind('click', function(e) {
         e.preventDefault();
         $that = $(this);
-        $that.val('Saving Draft...');
+        $that.saved_value = $that.val();
+        $that.val('Saving...');
         $.ajax({
             type: 'POST',
             data: {
@@ -24,7 +25,7 @@ $(document).ready(function() {
             }
         }).always(function(res) {
             setTimeout(function() {
-                $that.val('Save Draft');
+                $that.val($that.saved_value);
             }, 1000);
         });
     });
