@@ -58,4 +58,14 @@ class Post extends Model
     {
         return $this->hasOne('App\User', 'id', 'user');
     }
+
+    /**
+     * Get all of the tags related to this post.
+     *
+     * @return []App\Posts\PostTag
+     */
+    public function tags()
+    {
+        return $this->hasMany('App\Posts\PostTag', 'post', 'id');
+    }
 }
