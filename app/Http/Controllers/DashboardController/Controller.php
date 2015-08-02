@@ -4,6 +4,7 @@ namespace App\Http\Controllers\DashboardController;
 
 use Illuminate\Http\Request;
 use App\Posts\Post;
+use Carbon;
 use Auth;
 
 class Controller extends \App\Http\Controllers\Controller
@@ -46,7 +47,7 @@ class Controller extends \App\Http\Controllers\Controller
 
         if ($id === 'new')
         {
-            return view('dashboard.edit-post')->withPost(new Post);
+            return view('dashboard.edit-post')->withPost(new Post)->withNew(true);
         }
 
         return view('dashboard.edit-post')->withPost(Post::find($id));
@@ -77,5 +78,15 @@ class Controller extends \App\Http\Controllers\Controller
         $post->save();
 
         return $id === 'new' ? $post->id : 'success';
+    }
+
+    public function patchPosts(Request $request, $id)
+    {
+        $post = Post::find($id);
+        $post->published = true;
+        $post->published_at = Carbon\Carbon::now()->toDateTimeString();
+        $post->save();
+
+        // TODO - return link to published post
     }
 }

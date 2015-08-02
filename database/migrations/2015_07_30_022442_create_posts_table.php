@@ -19,6 +19,7 @@ class CreatePostsTable extends Migration
             $table->text('body');
             $table->integer('user')->unsigned();
             $table->boolean('published')->default(false);
+            $table->timestamp('published_at');
             $table->timestamps();
 
             $table->foreign('user')->references('id')->on('users');

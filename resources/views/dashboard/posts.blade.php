@@ -8,14 +8,14 @@
     <div class="row">
         <div class="col-xs-12">
             <ul class="nav nav-tabs" role="tablist">
-                <li role="presentation" class="active"><a href="#published" aria-controls="published" role="tab" data-toggle="tab">Published</a></li>
-                <li role="presentation"><a href="#drafts" aria-controls="drafts" role="tab" data-toggle="tab">Drafts</a></li>
+                <li role="presentation" class="active"><a href="#drafts" aria-controls="drafts" role="tab" data-toggle="tab">Drafts</a></li>
+                <li role="presentation"><a href="#published" aria-controls="published" role="tab" data-toggle="tab">Published</a></li>
             </ul>
 
             <div class="tab-content">
-                <div role="tabpanel" class="tab-pane active" id="published">
+                <div role="tabpanel" class="tab-pane active" id="drafts">
                     <ul>
-                        @foreach(App\Posts\Post::published() as $post)
+                        @foreach(App\Posts\Post::drafts() as $post)
                             <li class="post">
                                 <h2><a href="/dashboard/posts/{{ $post->id }}">{{ $post->title }}</a></h2>
                                 <p>{{ $post->meta_description }}</p>
@@ -28,9 +28,9 @@
                         @endforeach
                     </ul>
                 </div>
-                <div role="tabpanel" class="tab-pane" id="drafts">
+                <div role="tabpanel" class="tab-pane" id="published">
                     <ul>
-                        @foreach(App\Posts\Post::drafts() as $post)
+                        @foreach(App\Posts\Post::published() as $post)
                             <li class="post">
                                 <h2><a href="/dashboard/posts/{{ $post->id }}">{{ $post->title }}</a></h2>
                                 <p>{{ $post->meta_description }}</p>
@@ -38,6 +38,7 @@
                                     Author: {{ $post->author->name }}
                                     <br/>Created On: {{ date('M d, Y g:i:s', strtotime($post->created_at)) }}
                                     <br/>Last Updated On: {{ date('M d, Y g:i:s', strtotime($post->updated_at)) }}
+                                    <br/>Published On: {{ date('M d, Y g:i:s', strtotime($post->published_at)) }}
                                 </div>
                             </li>
                         @endforeach
