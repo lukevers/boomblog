@@ -21,23 +21,22 @@
         </div>
         <div class="row">
             <div class="col-xs-12">
-                <label for="title">Short Description</label>
-                <input type="text" id="title" name="title" placeholder="Short Description" value="{{ $post->meta_description }}">
+                <label for="meta_description">Short Description</label>
+                <input type="text" id="meta_description" name="meta_description" placeholder="Short Description" value="{{ $post->meta_description }}">
             </div>
         </div>
         <div class="row">
             <div class="col-xs-12">
-                <textarea id="body" name="body" class="hidden"></textarea>
-                <div id="summernote">{{ $post->body }}</div>
+                <div id="summernote">{!! $post->body !!}</div>
             </div>
         </div>
         <div class="row">
             <div class="col-xs-12">
-                <input type="submit" id="submit" value="Save Draft">
-                <input type="submit" id="submit" value="Preview">
+                <input type="submit" id="save-draft" value="Save Draft">
+                <input type="submit" id="preview" value="Preview">
 
                 <div class="pull-right">
-                    <input type="submit" id="submit" value="Publish">
+                    <input type="submit" id="publish" value="Publish">
                 </div>
             </div>
         </div>

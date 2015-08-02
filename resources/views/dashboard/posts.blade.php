@@ -22,7 +22,7 @@
                                 <div class="meta-data">
                                     Author: {{ $post->author->name }}
                                     <br/>Created On: {{ date('M d, Y g:i:s', strtotime($post->created_at)) }}
-                                    <br/>Last Updated On: {{ date('M d, Y g:i:s', strtotime($post->created_at)) }}
+                                    <br/>Last Updated On: {{ date('M d, Y g:i:s', strtotime($post->updated_at)) }}
                                 </div>
                             </li>
                         @endforeach
@@ -37,7 +37,7 @@
                                 <div class="meta-data">
                                     Author: {{ $post->author->name }}
                                     <br/>Created On: {{ date('M d, Y g:i:s', strtotime($post->created_at)) }}
-                                    <br/>Last Updated On: {{ date('M d, Y g:i:s', strtotime($post->created_at)) }}
+                                    <br/>Last Updated On: {{ date('M d, Y g:i:s', strtotime($post->updated_at)) }}
                                 </div>
                             </li>
                         @endforeach

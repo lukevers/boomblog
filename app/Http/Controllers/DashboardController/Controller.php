@@ -4,6 +4,7 @@ namespace App\Http\Controllers\DashboardController;
 
 use Illuminate\Http\Request;
 use App\Posts\Post;
+use Auth;
 
 class Controller extends \App\Http\Controllers\Controller
 {
@@ -57,8 +58,24 @@ class Controller extends \App\Http\Controllers\Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function postNew(Request $request)
+    public function postPosts(Request $request, $id = 'new')
     {
-        dd($request);
+        if ($id === 'new')
+        {
+            $post = new Post;
+            $post->user = Auth::user()->id;
+        }
+
+        else
+        {
+            $post = Post::find($id);
+        }
+
+        $post->title = is_null($request['title']) ? '' : $request['title'];
+        $post->meta_description = is_null($request['meta_description']) ? '' : $request['meta_description'];
+        $post->body = is_null($request['body']) ? '' : $request['body'];
+        $post->save();
+
+        return $id === 'new' ? $post->id : 'success';
     }
 }
