@@ -94,6 +94,6 @@ class Controller extends \App\Http\Controllers\Controller
         $post->published_at = Carbon\Carbon::now()->toDateTimeString();
         $post->save();
 
-        // TODO - return link to published post
+        return '/' . $post->slug;
     }
 }
