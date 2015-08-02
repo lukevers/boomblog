@@ -87,6 +87,12 @@ class Controller extends \App\Http\Controllers\Controller
         return $id === 'new' ? $post->id : 'success';
     }
 
+    /**
+     * Publish Post
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return string link to published post
+     */
     public function patchPosts(Request $request, $id)
     {
         $post = Post::find($id);
