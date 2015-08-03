@@ -36,7 +36,7 @@ class Post extends Model
      */
     public static function published()
     {
-        return self::where('published', '=', true)->get();
+        return self::where('published', '=', true)->orderBy('published_at', 'DESC')->get();
     }
 
     /**

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\PublicController;
 
 use Illuminate\Http\Request;
 use App\Posts\Post;
+use App\Posts\Tag;
 
 class Controller extends \App\Http\Controllers\Controller
 {
@@ -21,7 +22,24 @@ class Controller extends \App\Http\Controllers\Controller
      */
     public function getIndex()
     {
-        return view('public.index');
+        return view('public.index')->withPosts(Post::published());
+    }
+
+    /**
+     * Tag Page
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @param  string $tag
+     * @return view
+     */
+    public function getTag(Request $request, $tag = null)
+    {
+        if (is_null($tag))
+        {
+            return abort(404);
+        }
+
+        return view('public.tags')->withPosts(Tag::posts($tag));
     }
 
     /**

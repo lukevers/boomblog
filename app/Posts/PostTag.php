@@ -20,6 +20,11 @@ class PostTag extends Model
      */
     public function get()
     {
-        return $this->hasOne('App\Posts\Tag', 'id');
+        return $this->hasOne('App\Posts\Tag', 'id', 'tag');
+    }
+
+    public function getPost()
+    {
+        return $this->belongsTo('App\Posts\Post', 'post', 'id');
     }
 }
