@@ -5,6 +5,8 @@ namespace App\Http\Controllers\PublicController;
 use Illuminate\Http\Request;
 use App\Posts\Post;
 use App\Posts\Tag;
+use Feed;
+use URL;
 
 class Controller extends \App\Http\Controllers\Controller
 {
@@ -40,6 +42,33 @@ class Controller extends \App\Http\Controllers\Controller
         }
 
         return view('public.tags')->withPosts(Tag::posts($tag));
+    }
+
+    /**
+     * RSS Feed
+     *
+     */
+    public function getRss(Request $request)
+    {
+        $feed  = Feed::make();
+        $posts = Post::published()->take(20);
+
+        // TODO:
+        // GET VALUES FROM SETTINGS
+
+        $feed->title = 'title';
+        $feed->description = 'desc';
+        $feed->logo = URL::to('image');
+        $feed->link = URL::to('rss');
+        $feed->lang = 'en';
+        $feed->pubdate = $posts[0]->published_at;
+
+        foreach($posts as $post)
+        {
+            $feed->add($post->title, $post->author, URL::to($post->slug), $post->published_at, $post->meta_description, $post->body);
+        }
+
+        return $feed->render('atom');
     }
 
     /**
