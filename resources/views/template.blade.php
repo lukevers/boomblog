@@ -8,6 +8,8 @@
         <link rel="icon" href="/favicon.ico" type="image/x-icon">
         <link rel="canonical" href="{{ Request::url() }}">
         <link rel="stylesheet" href="/assets/css/styles.css" type="text/css">
+        <link href='http://fonts.googleapis.com/css?family=Lustria' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Lato:400,400italic,700,300italic,300' rel='stylesheet' type='text/css'>
     </head>
     <body class="{{ str_replace('/', '-', Request::path()) }}">
         <div id="page-content" class="page-content">

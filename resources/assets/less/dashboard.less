@@ -1,43 +1,41 @@
-nav.navbar {
-    font-size: 12px;
-}
+body[class*="dashboard-"] {
+    nav.navbar {
+        font-size: 12px;
+    }
 
-body {
-    &[class*="dashboard-"] {
-        .page-content {
-            margin-top: @navbar-height + 15px;
-        }
+    .page-content {
+        margin-top: @navbar-height + 15px;
+    }
 
-        ul {
-            margin: 0;
-            padding: 0;
+    ul {
+        margin: 0;
+        padding: 0;
 
-            li {
-                list-style: none;
+        li {
+            list-style: none;
 
-                &.post {
-                    border-bottom: 1px solid @gray;
-                    padding: 15px;
+            &.post {
+                border-bottom: 1px solid @gray;
+                padding: 15px;
 
-                    .meta-data {
-                        color: @gray;
-                    }
+                .meta-data {
+                    color: @gray;
                 }
             }
         }
+    }
 
-        input[type="text"] {
-            width: 100%;
-            border: 1px solid @gray;
-            padding: 10px;
-            margin-bottom: 10px;
-        }
+    input[type="text"] {
+        width: 100%;
+        border: 1px solid @gray;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
 
-        input[type="submit"] {
-            border: 1px solid @gray;
-            background-color: #fff;
-            padding: 10px 20px;
-            margin-bottom: 10px;
-        }
+    input[type="submit"] {
+        border: 1px solid @gray;
+        background-color: #fff;
+        padding: 10px 20px;
+        margin-bottom: 10px;
     }
 }

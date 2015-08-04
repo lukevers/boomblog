@@ -3,6 +3,25 @@ $(document).ready(function() {
         height: 300,
         minHeight: 200,
         maxHeight: null,
+        onImageUpload: function(files, editor, welEditable) {
+            var data = new FormData();
+            data.append('file', files[0]);
+            $.ajax({
+                type: 'POST',
+                url: '/dashboard/uploadimage',
+                processData: false,
+                contentType: false,
+                cache: false,
+                headers: {
+                    'X-CSRF-TOKEN': $('input[name="_token"]').val(),
+                },
+                data: data,
+                success: function(filepath) {
+                    console.log(filepath);
+                    $('#summernote').summernote("insertImage", filepath);
+                },
+            });
+        },
     });
 
     $('#save-draft').bind('click', function(e) {

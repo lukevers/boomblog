@@ -5,8 +5,10 @@ namespace App\Http\Controllers\DashboardController;
 use Illuminate\Http\Request;
 use Cocur\Slugify\Slugify;
 use App\Posts\Post;
+use Input;
 use Carbon;
 use Auth;
+use URL;
 
 class Controller extends \App\Http\Controllers\Controller
 {
@@ -28,6 +30,19 @@ class Controller extends \App\Http\Controllers\Controller
     public function getIndex()
     {
         return view('dashboard.index');
+    }
+
+    public function postUploadimage(Request $request)
+    {
+        if ($request->hasFile('file'))
+        {
+            $filename = str_random(6) . '_' . $request->file('file')->getClientOriginalName();
+            $request->file('file')->move(storage_path() . '/app', $filename);
+
+            return URL::to('/storage/' . $filename);
+        }
+
+        return abort(400);
     }
 
     /**

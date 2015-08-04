@@ -33,4 +33,5 @@ Route::controller('/auth', Auth\AuthController::class);
 |
 */
 
+Route::get('/storage/{path?}', 'PublicController\Storage@get');
 Route::controller('/', PublicController\Controller::class);
