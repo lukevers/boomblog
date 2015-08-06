@@ -7,7 +7,6 @@
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.1.*",
-        "cocur/slugify": "^1.2",
         "roumen/feed": "^2.9"
     },
     "require-dev": {

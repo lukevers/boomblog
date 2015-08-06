@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\DashboardController;
 
 use Illuminate\Http\Request;
-use Cocur\Slugify\Slugify;
 use App\Posts\Post;
 use Input;
 use Carbon;
@@ -92,10 +91,7 @@ class Controller extends \App\Http\Controllers\Controller
 
         $post->title = is_null($request['title']) ? '' : $request['title'];
         $post->body = is_null($request['body']) ? '' : $request['body'];
-
-        $slugify = new Slugify();
-        $post->slug = $slugify->slugify($post->title);
-
+        $post->slug = str_slug('-', $post->title);
         $post->save();
 
         return $id === 'new' ? $post->id : 'success';
