@@ -24,11 +24,20 @@
                     </div>
                 </div>
             @endforeach
+            @if(isset($single))
+                <div class="row">
+                    <div class="col-xs-12">
+                        @include('sections.public.comments')
+                    </div>
+                </div>
+            @endif
         </div>
         <div class="col-xs-12 col-md-4">
             @include('sections.public.sidebar')
         </div>
     </div>
 </div>
+
+@include('sections.public.footer')
 
 @endsection

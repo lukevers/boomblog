@@ -92,6 +92,7 @@ class Controller extends \App\Http\Controllers\Controller
             return abort(404);
         }
 
-        return view('public.post')->withPost($post);
+        return view('public.posts')->withPosts([$post])
+            ->withSingle(true);
     }
 }
