@@ -24,7 +24,7 @@ class Controller extends \App\Http\Controllers\Controller
      */
     public function getIndex()
     {
-        return view('public.index')->withPosts(Post::published());
+        return view('public.posts')->withPosts(Post::published());
     }
 
     /**
@@ -41,7 +41,7 @@ class Controller extends \App\Http\Controllers\Controller
             return abort(404);
         }
 
-        return view('public.tags')->withPosts(Tag::posts($tag));
+        return view('public.posts')->withPosts(Tag::posts($tag));
     }
 
     /**
