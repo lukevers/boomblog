@@ -91,7 +91,6 @@ class Controller extends \App\Http\Controllers\Controller
         }
 
         $post->title = is_null($request['title']) ? '' : $request['title'];
-        $post->meta_description = is_null($request['meta_description']) ? '' : $request['meta_description'];
         $post->body = is_null($request['body']) ? '' : $request['body'];
 
         $slugify = new Slugify();

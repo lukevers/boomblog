@@ -1,3 +1,3 @@
 <div class="sidebar">
-    hi
+    <h1>Title</h1>
 </div>

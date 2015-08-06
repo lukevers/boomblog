@@ -34,7 +34,6 @@ $(document).ready(function() {
             data: {
                 _token: $('input[name="_token"]').val(),
                 title: $('#title').val(),
-                meta_description: $('#meta_description').val(),
                 body: $('.note-editable').html(),
             }
         }).success(function(res) {

@@ -65,7 +65,7 @@ class Controller extends \App\Http\Controllers\Controller
 
         foreach($posts as $post)
         {
-            $feed->add($post->title, $post->author, URL::to($post->slug), $post->published_at, $post->meta_description, $post->body);
+            $feed->add($post->title, $post->author, URL::to($post->slug), $post->published_at, $post->body, $post->body);
         }
 
         return $feed->render('atom');
